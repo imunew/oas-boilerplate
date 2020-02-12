@@ -1,5 +1,6 @@
 
 var express = require('express');
+var basicAuth = require('basic-auth-connect');
 var app = express();
 
 var user = process.env.USER;
@@ -8,7 +9,7 @@ var pass = process.env.PASS;
 app.set('port', process.env.PORT || 3000);
 
 if (user && pass) {
-  app.use(express.basicAuth(user, pass));
+  app.use(basicAuth(user, pass));
 }
 
 app.use(express.logger('dev'));
