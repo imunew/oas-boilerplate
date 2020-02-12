@@ -1,0 +1,9 @@
+schemas:
+  $ref: './schemas/index.yml'
+examples:
+  $ref: './examples/index.yml'
+securitySchemes:
+  bearerAuth:
+    type: http
+    scheme: bearer
+    bearerFormat: JWT

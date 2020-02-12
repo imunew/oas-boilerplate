@@ -1,0 +1,20 @@
+openapi: 3.0.0
+info:
+  version: 0.1.0
+  title: Example Application API Specs
+  license:
+    name: example.com.
+servers:
+  - url: 'http://localhost'
+    description: Local environment
+paths: {}
+components:
+  schemas: {}
+  examples: {}
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+  - bearerAuth: []

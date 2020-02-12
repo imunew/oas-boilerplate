@@ -1,0 +1,26 @@
+version: '3'
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    ports:
+      - 3020:8080
+    volumes:
+      - public_html:/usr/share/nginx/html/
+    environment:
+      API_URL: ./apispec.yml
+    depends_on:
+      - swagpack
+  swagpack:
+    build: .
+    volumes:
+      - ./src:/app/src
+      - ./validate.js:/app/validate.js
+      - public_html:/app/dist
+    working_dir: /app
+
+volumes:
+  public_html:
+    driver_opts:
+      type: none
+      device: $PWD/public
+      o: bind
